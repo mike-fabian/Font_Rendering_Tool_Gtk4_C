@@ -46,7 +46,7 @@ static void app_activate (GApplication *app, gpointer user_data)
   GtkWidget *window;
   GtkWidget *table, *label, *picker;
     window = gtk_application_window_new(GTK_APPLICATION(app));
-    gtk_window_set_title (GTK_WINDOW (window), "Pickers");
+    gtk_window_set_title (GTK_WINDOW (window), "Font Comparison");
     gtk_window_set_default_size(GTK_WINDOW(window), 500, 500);
 
     table = gtk_grid_new ();
@@ -70,13 +70,14 @@ static void app_activate (GApplication *app, gpointer user_data)
     //gtk_grid_attach (GTK_GRID (table), picker, 1, 1, 1, 1);
     gtk_grid_attach (GTK_GRID (table), picker, 0, 1, 1, 1);
     g_signal_connect(picker, "font-set", G_CALLBACK(font_set_cb1), NULL);
+    //gtk_widget_set_hexpand (picker, TRUE);
 
 
     font_test_label1 = gtk_label_new (NULL);
     gtk_widget_set_halign (font_test_label1, GTK_ALIGN_START);
     gtk_widget_set_valign (font_test_label1, GTK_ALIGN_CENTER);
-    gtk_widget_set_hexpand (font_test_label1, TRUE);
-    gtk_widget_set_vexpand (font_test_label1, TRUE);
+    //gtk_widget_set_hexpand (font_test_label1, TRUE);
+    //gtk_widget_set_vexpand (font_test_label1, TRUE);
     //gtk_grid_attach (GTK_GRID (table), GTK_WIDGET(font_test_label1), 1, -1, 1, 1);
     gtk_grid_attach (GTK_GRID (table), GTK_WIDGET(font_test_label1), 1, 1, 1, 1);
     set_test_label_text_and_font1("Sans Regular 25");
@@ -95,13 +96,14 @@ static void app_activate (GApplication *app, gpointer user_data)
     //gtk_grid_attach (GTK_GRID (table), picker, 1, 3, 1, 1);
     gtk_grid_attach (GTK_GRID (table), picker, 0, 3, 1, 1);
     g_signal_connect(picker, "font-set", G_CALLBACK(font_set_cb2), NULL);
+   // gtk_widget_set_hexpand (picker, TRUE);
 
    
     font_test_label2 = gtk_label_new (NULL);
     gtk_widget_set_halign (font_test_label2, GTK_ALIGN_START);
     gtk_widget_set_valign (font_test_label2, GTK_ALIGN_CENTER);
-    gtk_widget_set_hexpand (font_test_label2, TRUE);
-    gtk_widget_set_vexpand (font_test_label2, TRUE);
+    //gtk_widget_set_hexpand (font_test_label2, TRUE);
+    //gtk_widget_set_vexpand (font_test_label2, TRUE);
     //gtk_grid_attach (GTK_GRID (table), GTK_WIDGET(font_test_label2), 1, 2, 1, 1);
     gtk_grid_attach (GTK_GRID (table), GTK_WIDGET(font_test_label2), 1, 3, 1, 1);
     set_test_label_text_and_font2("Sans Regular 25");
