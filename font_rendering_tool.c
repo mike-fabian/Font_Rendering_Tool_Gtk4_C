@@ -52,6 +52,8 @@ static void app_activate (GApplication *app, gpointer user_data)
 	GtkWidget *dmyu1;//upper
 	GtkWidget *dmyb1;//bottom
 	GtkWidget *dmyc1;//center
+        const gchar font1[] = "C059 Bold Italic 40";
+        const gchar font2[] = "C059 Bold 50";
 	window = gtk_application_window_new(GTK_APPLICATION(app));
 	gtk_window_set_title (GTK_WINDOW (window), "Font Comparison");
 	gtk_window_set_default_size(GTK_WINDOW(window), 500, 500);
@@ -80,6 +82,7 @@ static void app_activate (GApplication *app, gpointer user_data)
 	gtk_box_append (GTK_BOX (boxb2), dmyu1);
 
 	picker1 = gtk_font_button_new ();
+        gtk_font_chooser_set_font(picker1, font1);
 	gtk_box_append (GTK_BOX (boxb2), picker1);
 	g_signal_connect(picker1, "font-set", G_CALLBACK(font_set_cb1), NULL);
 	//gtk_widget_set_hexpand (picker1, FALSE);
@@ -90,13 +93,14 @@ static void app_activate (GApplication *app, gpointer user_data)
 	//gtk_widget_set_hexpand (font_test_label1, TRUE);
 	//gtk_widget_set_vexpand (font_test_label1, TRUE);
 	gtk_box_append (GTK_BOX (boxb2), font_test_label1);
-	set_test_label_text_and_font1("C059 Bold Italic 40");
+	set_test_label_text_and_font1(font1);
 
 	dmyc1 = gtk_label_new(NULL); // dummy label for center space
 	gtk_widget_set_vexpand (dmyc1, TRUE);
 	gtk_box_append (GTK_BOX (boxb2), dmyc1);
 
 	picker2 = gtk_font_button_new ();
+        gtk_font_chooser_set_font(picker2, font2);
 	gtk_box_append (GTK_BOX (boxb2), picker2); 
 	g_signal_connect(picker2, "font-set", G_CALLBACK(font_set_cb2), NULL);
 	// gtk_widget_set_hexpand (picker2, TRUE);
@@ -107,7 +111,7 @@ static void app_activate (GApplication *app, gpointer user_data)
 	//gtk_widget_set_hexpand (font_test_label2, TRUE);
 	//gtk_widget_set_vexpand (font_test_label2, TRUE);
 	gtk_box_append (GTK_BOX (boxb2), font_test_label2);
-	set_test_label_text_and_font2("C059 Bold 50");
+	set_test_label_text_and_font2(font2);
 
 	dmyb1 = gtk_label_new(NULL); // dummy label for bottom space
 	gtk_widget_set_vexpand (dmyb1, TRUE);
